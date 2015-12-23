@@ -1,0 +1,20 @@
+{
+  "name": "espoll",
+  "repository": "https://github.com/keis/espoll",
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "description": "A steam of new data as it arrives in elasticsearch",
+  "license": "ISC",
+  "dependencies": {
+    "CBuffer": "^1.1.1",
+    "elasticsearch-streams": "0.0.9",
+    "inherits": "^2.0.1",
+    "readable-stream": "^2.0.4"
+  },
+  "devDependencies": {
+    "elasticsearch": "^10.0.1",
+    "through2": "^2.0.0"
+  }
+}
