@@ -12,6 +12,7 @@ function ESPoll (options) {
   this.index = options.index
   this.query = options.query
   this.delay = options.delay || 500
+  this.size = options.size || 64
 
   this.tip = null
   this.seen = new CBuffer(64)
@@ -34,7 +35,7 @@ ESPoll.prototype._read = function () {
       self.client.search({
         index: self.index,
         from: from,
-        size: 12,
+        size: self.size,
         body: {
           sort: sort,
           query: {'filtered': query}
