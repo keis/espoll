@@ -5,7 +5,7 @@ var CBuffer = require('CBuffer')
 
 module.exports = ESPoll
 
-function ESPoll(options) {
+function ESPoll (options) {
   Transform.call(this, {objectMode: true})
 
   this.client = options.client

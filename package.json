@@ -7,6 +7,9 @@
   ],
   "description": "A steam of new data as it arrives in elasticsearch",
   "license": "ISC",
+  "scripts": {
+    "test": "standard"
+  },
   "dependencies": {
     "CBuffer": "^1.1.1",
     "elasticsearch-streams": "0.0.9",
@@ -15,6 +18,7 @@
   },
   "devDependencies": {
     "elasticsearch": "^10.0.1",
+    "standard": "^5.4.1",
     "through2": "^2.0.0"
   },
   "version": "1.0.0"
