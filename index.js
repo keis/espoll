@@ -13,6 +13,7 @@ function ESPoll (options) {
   this.query = options.query
   this.delay = options.delay || 500
   this.size = options.size || 64
+  this.exit = false
 
   this.tip = null
   this.seen = new CBuffer(64)
@@ -45,7 +46,11 @@ ESPoll.prototype._read = function () {
 
     this.stream.on('end', function () {
       self.stream = null
-      setTimeout(function () { self._read() }, self.delay)
+      if (self.exit) {
+        self.end()
+      } else {
+        setTimeout(function () { self._read() }, self.delay)
+      }
     })
 
     this.stream.pipe(this, {end: false})
@@ -69,3 +74,6 @@ ESPoll.prototype._transform = function (chunk, enc, cb) {
   cb(null, chunk)
 }
 
+ESPoll.prototype.stop = function () {
+  this.exit = true
+}
